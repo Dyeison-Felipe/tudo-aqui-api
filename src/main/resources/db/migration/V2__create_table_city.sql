@@ -2,15 +2,15 @@ CREATE TABLE city
 (
     id       uuid         NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
     name     varchar(150) NOT NULL,
-    state uuid         NOT NULL,
+    state_id uuid         NOT NULL,
 
     CONSTRAINT fk_city_state
-        FOREIGN KEY (state) REFERENCES state (id) ON DELETE RESTRICT
+        FOREIGN KEY (state_id) REFERENCES state (id) ON DELETE RESTRICT
 );
 
-CREATE INDEX idx_city_state_id ON city (state);
+CREATE INDEX idx_city_state_id ON city (state_id);
 
-INSERT INTO city (name, state)
+INSERT INTO city (name, state_id)
 VALUES ('Afonso Cláudio', 'c441596d-2b12-4b8d-a86c-b86654c3bf2c'),
        ('Água Doce do Norte', 'c441596d-2b12-4b8d-a86c-b86654c3bf2c'),
        ('Águia Branca', 'c441596d-2b12-4b8d-a86c-b86654c3bf2c'),
@@ -1529,7 +1529,7 @@ VALUES ('Afonso Cláudio', 'c441596d-2b12-4b8d-a86c-b86654c3bf2c'),
        ('Dourados', 'bb1c2dd1-4b02-4854-9be4-702d62be71d4'),
        ('Eldorado', 'bb1c2dd1-4b02-4854-9be4-702d62be71d4');
 
-INSERT INTO city (name, state)
+INSERT INTO city (name, state_id)
 VALUES ('Fátima do Sul', 'bb1c2dd1-4b02-4854-9be4-702d62be71d4'),
        ('Figueirão', 'bb1c2dd1-4b02-4854-9be4-702d62be71d4'),
        ('Glória de Dourados', 'bb1c2dd1-4b02-4854-9be4-702d62be71d4'),
@@ -2973,7 +2973,7 @@ VALUES ('Fátima do Sul', 'bb1c2dd1-4b02-4854-9be4-702d62be71d4'),
        ('Jataizinho', 'd5c1ed3b-47f9-4be5-a16f-1b4c1c352597');
 
 
-INSERT INTO city (name, state)
+INSERT INTO city (name, state_id)
 VALUES ('Jesuítas', 'd5c1ed3b-47f9-4be5-a16f-1b4c1c352597'),
        ('Joaquim Távora', 'd5c1ed3b-47f9-4be5-a16f-1b4c1c352597'),
        ('Jundiaí do Sul', 'd5c1ed3b-47f9-4be5-a16f-1b4c1c352597'),
@@ -4394,7 +4394,7 @@ VALUES ('Jesuítas', 'd5c1ed3b-47f9-4be5-a16f-1b4c1c352597'),
        ('Pimenta Bueno', 'd50f5445-f9ae-47a9-ae9a-3984c3590bbf');
 
 
-INSERT INTO city (name, state)
+INSERT INTO city (name, state_id)
 VALUES ('Pimenteiras do Oeste', 'd50f5445-f9ae-47a9-ae9a-3984c3590bbf'),
        ('Porto Velho', 'd50f5445-f9ae-47a9-ae9a-3984c3590bbf'),
        ('Presidente Médici', 'd50f5445-f9ae-47a9-ae9a-3984c3590bbf'),
