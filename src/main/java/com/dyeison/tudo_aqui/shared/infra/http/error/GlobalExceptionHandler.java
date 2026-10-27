@@ -2,6 +2,7 @@ package com.dyeison.tudo_aqui.shared.infra.http.error;
 
 
 import com.dyeison.tudo_aqui.shared.application.exception.ConflictException;
+import com.dyeison.tudo_aqui.shared.application.exception.InvalidInputException;
 import com.dyeison.tudo_aqui.shared.application.exception.NotFoundException;
 import com.dyeison.tudo_aqui.shared.application.exception.UnauthorizedException;
 import com.dyeison.tudo_aqui.shared.domain.exception.BusinessRuleException;
@@ -21,6 +22,11 @@ import java.util.List;
 public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    @ExceptionHandler(InvalidInputException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidInput(InvalidInputException ex, HttpServletRequest request) {
+        return build(HttpStatus.BAD_REQUEST, ex.getMessage(), request);
+    }
 
     // 401
     @ExceptionHandler(UnauthorizedException.class)
